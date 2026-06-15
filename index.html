@@ -240,6 +240,8 @@
   .pname{font-size:20px;font-weight:600;letter-spacing:-.015em;display:flex;align-items:center;gap:10px}
   .pname .ext{opacity:0;transition:all .2s;color:var(--blue);font-size:14px}
   .project:hover .pname .ext{opacity:1;transform:translateX(2px)}
+  .project a{text-decoration:none}
+  .pname a{color:inherit;display:flex;align-items:center;gap:10px}
   .pdesc{color:var(--ink-dim);font-size:14px;line-height:1.55;flex:1}
   .ptags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
   .tag{
@@ -569,7 +571,7 @@
           <div class="mk" style="background:radial-gradient(circle at 30% 50%, #1a1f3a, #0a0f1f);padding:0">
             <div style="position:absolute;top:24px;left:32px;font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.2em">SKINSTRIC <span style="color:#5b9eff">[ INTRO ]</span></div>
             <div style="position:absolute;top:24px;right:32px;display:flex;gap:16px;font-family:var(--mono);font-size:11px;color:#888">
-              <span>EN</span><span style="color:#5b9eff" a href="https://skinstric-mu-lime.vercel.app/" target="_blank">START ANALYSIS →</span>
+              <span>EN</span><a href="https://skinstric-mu-lime.vercel.app/" target="_blank" style="color:#5b9eff">START ANALYSIS →</a>
             </div>
             <!-- diamond -->
             <div style="position:relative;width:240px;height:240px">
@@ -588,7 +590,7 @@
               [ START THE EXPERIENCE TO TEST YOUR SKIN. ]<br>
               DISCOVER A.I. THAT CREATES EFFECTIVE SKINCARE.
             </div>
-            <div a href="https://skinstric-mu-lime.vercel.app/" target="_blank" style="position:absolute;bottom:24px;right:32px;font-family:var(--mono);font-size:10px;color:#666">PROCEED ▸</div>
+            <a href="https://skinstric-mu-lime.vercel.app/" target="_blank" style="position:absolute;bottom:24px;right:32px;font-family:var(--mono);font-size:10px;color:#666">PROCEED ▸</a>
           </div>
         </div>
         <div class="pinfo">
@@ -599,7 +601,7 @@
             <span>·</span>
             <span style="color:var(--green)">● Live</span>
           </div>
-          <div class="pname">Skinstric <span class="ext" a href="https://skinstric-mu-lime.vercel.app/" target="_blank">↗</span></div>
+          <div class="pname"><a href="https://skinstric-mu-lime.vercel.app/" target="_blank">Skinstric <span class="ext">↗</span></a></div>
           <p class="pdesc">A polished AI-powered skincare analysis interface with multi-step UX, animated diamond motif, demographic capture, and conditional UI flows. Built with Next.js, TypeScript, and Framer Motion.</p>
           <div class="ptags">
             <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Framer Motion</span><span class="tag">Tailwind</span><span class="tag">AI / ML</span>
@@ -619,7 +621,7 @@
             <div class="center">
               <div class="ttl">Unlimited films &amp; TV.</div>
               <div class="sub">Watch anywhere. Cancel anytime.</div>
-              <div class="nbtn" a href="https://netflix-clone-mu-lime.vercel.app/" target="_blank">GET STARTED ▸</div>
+              <a href="https://netflix-clone-mu-lime.vercel.app/" target="_blank" class="nbtn">GET STARTED ▸</a>
             </div>
           </div>
         </div>
@@ -627,7 +629,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#f7df1e">JavaScript</span><span>·</span><span>Clone</span>
           </div>
-          <div class="pname" >Netflix Clone <span class="ext" a href="https://netflix-clone-mu-lime.vercel.app/" target="_blank">↗</span></div>
+          <div class="pname"><a href="https://netflix-clone-mu-lime.vercel.app/" target="_blank">Netflix Clone <span class="ext">↗</span></a></div>
           <p class="pdesc">Pixel-faithful Netflix landing rebuild with TMDB integration, auth flow, and responsive hero carousel.</p>
           <div class="ptags"><span class="tag">React</span><span class="tag">Firebase</span><span class="tag">TMDB API</span></div>
         </div>
@@ -647,7 +649,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>Profile</span>
           </div>
-          <div class="pname">CameronMoses <span class="ext" a href="https://github.com/CJMoses1318" target="_blank">↗</span></div>
+          <div class="pname"><a href="https://github.com/CJMoses1318" target="_blank">CameronMoses <span class="ext">↗</span></a></div>
           <p class="pdesc">My GitHub profile README — a curated overview of my work and stack.</p>
         </div>
       </article>
@@ -655,7 +657,7 @@
       <article class="project">
         <div class="pmock">
           <div class="mk mk-summ">
-            <div class="head" a href="https://summarist-mu-lime.vercel.app/" target="_blank">📚 Summarist</div>
+            <a href="https://summarist-mu-lime.vercel.app/" target="_blank" class="head">📚 Summarist</a>
             <div class="nav"><span>Login</span><span>About</span><span>Contact</span></div>
             <div class="content">
               <div class="ct">
@@ -672,7 +674,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>SaaS</span>
           </div>
-          <div class="pname">Summarist <span class="ext">↗</span></div>
+          <div class="pname"><a href="https://summarist-mu-lime.vercel.app/" target="_blank">Summarist <span class="ext">↗</span></a></div>
           <p class="pdesc">A Blinkist-style book summary platform with Stripe subscriptions, audio playback, and authenticated reading.</p>
           <div class="ptags"><span class="tag">Next.js</span><span class="tag">Stripe</span><span class="tag">Firestore</span></div>
         </div>
@@ -698,7 +700,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>Web3</span>
           </div>
-          <div class="pname">Ultraverse NFT Market <span class="ext" a href="https://ultraverse-mu-lime.vercel.app/" target="_blank">↗</span></div>
+          <div class="pname"><a href="https://ultraverse-mu-lime.vercel.app/" target="_blank">Ultraverse NFT Market <span class="ext">↗</span></a></div>
           <p class="pdesc">A modern NFT marketplace concept with collection browsing, item pages, and a clean purple-accented design language.</p>
           <div class="ptags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Web3</span></div>
         </div>
@@ -725,7 +727,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>E−commerce</span>
           </div>
-          <div class="pname">Furniture E−commerce <span class="ext" a href="https://furniture-ecommerce-mu-lime.vercel.app/" target="_blank">↗</span></div>
+          <div class="pname"><a href="https://furniture-ecommerce-mu-lime.vercel.app/" target="_blank">Furniture E−commerce <span class="ext">↗</span></a></div>
           <p class="pdesc">A full-featured furniture store with product catalog, cart, search filters, and a moody editorial aesthetic.</p>
           <div class="ptags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Stripe</span></div>
         </div>
@@ -745,7 +747,7 @@
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>Editorial</span>
           </div>
-          <div class="pname">Sophisticated Skincare <span class="ext">↗</span></div>
+          <div class="pname"><a href="https://skinstric-mu-lime.vercel.app/" target="_blank">Sophisticated Skincare <span class="ext">↗</span></a></div>
           <p class="pdesc">An editorial landing concept with serif typography and meticulous corner annotations.</p>
           <div class="ptags"><span class="tag">React</span><span class="tag">CSS</span></div>
         </div>
