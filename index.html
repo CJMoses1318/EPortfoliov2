@@ -64,11 +64,19 @@
   nav .row{display:flex;align-items:center;justify-content:space-between;height:64px}
   .brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:-.01em}
   .brand-mark{
-    width:32px;height:32px;border-radius:8px;
-    background:linear-gradient(135deg, var(--blue) 0%, var(--accent) 100%);
-    display:grid;place-items:center;color:#0a0f1f;font-weight:700;font-size:14px;
+    width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;
     box-shadow:0 0 24px rgba(91,158,255,.35), inset 0 1px 0 rgba(255,255,255,.25);
+    transition:transform .2s ease, box-shadow .2s ease;
+    position:relative;z-index:1;
   }
+  .brand-mark:hover{
+    transform:scale(1.35);
+    z-index:2;
+    box-shadow:0 0 36px rgba(91,158,255,.55), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
+  .brand-identity{color:inherit;text-decoration:none}
+  .brand-identity:hover{color:inherit}
   .brand-meta{display:flex;flex-direction:column;line-height:1.1}
   .brand-meta span:last-child{color:var(--ink-mute);font-size:11px;font-weight:500}
   .nav-links{display:flex;gap:4px;align-items:center;font-family:var(--mono);font-size:13px}
@@ -315,6 +323,7 @@
 
   /* EDUCATION + SKILLS row */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
   .card{
     background:var(--bg-card);
     border:1px solid var(--line);
@@ -391,6 +400,7 @@
   }
   @media (max-width:640px){
     .shell{padding:0 20px}
+    .about-grid{grid-template-columns:1fr;gap:32px}
     .nav-links{display:none}
     .stack{grid-template-columns:repeat(2,1fr)}
     .projects{grid-template-columns:1fr}
@@ -408,13 +418,17 @@
 <nav class="top">
   <div class="shell">
     <div class="row">
-      <a href="#top" class="brand">
-        <div class="brand-mark">CM</div>
-        <div class="brand-meta">
-          <span>Cameron Moses</span>
-          <span>Frontend Engineer · San Diego, CA</span>
-        </div>
-      </a>
+      <div class="brand">
+        <a href="mailto:cjmoses1318@gmail.com" class="brand-mark" aria-label="Email Cameron Moses">
+          <img src="CMProfile.JPG" alt="" width="32" height="32">
+        </a>
+        <a href="#top" class="brand-identity">
+          <div class="brand-meta">
+            <span>Cameron Moses</span>
+            <span>Frontend Engineer · San Diego, CA</span>
+          </div>
+        </a>
+      </div>
       <div class="nav-links">
         <a href="#about"><span class="num">01</span>about</a>
         <a href="#stack"><span class="num">02</span>stack</a>
@@ -437,14 +451,13 @@
           <span style="font-family:var(--mono)">~/portfolio — v2.0.26</span>
         </span>
         <h1>
-          Building <span class="grad">fast, modern</span><br>
-          web experiences<span class="caret"></span>
+          Where rigid <span class="grad"><br>type safety</span><br>
+          meets fluid<br><span class="grad">user experience.</span></span><span class="caret"></span>
         </h1>
         <p class="lede">
-          I'm <b>Cameron Moses</b>, a frontend software engineer based in San Diego.
-          I design and build production-grade web applications with
-          <b>React</b>, <b>TypeScript</b>, <b>Next.js</b>, and modern UI tooling —
-          turning coffee into code, one commit at a time.
+          I'm <b>Cameron Moses</b>, a frontend software engineer based in San Diego that's
+          dedicated to building web applications that feel finished, not just functional. <br><br> 
+          Using <b>React</b>, <b>TypeScript</b>, and <b>Next.js</b>, I turn complex design systems into clean, production-grade code with an obsession for seamless user flows.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">
@@ -495,11 +508,11 @@
       <h2 class="sect-title">About</h2>
       <span class="sect-rule"></span>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+    <div class="about-grid">
       <div>
         <p style="font-size:18px;line-height:1.7;color:var(--ink-dim)">
           I'm a frontend software engineer who fell in love with the craft of building
-          for the web. After years working in operations and client-facing roles —
+          for the web. After years working in operations and client-facing roles
           from <b style="color:var(--ink)">Applied Materials</b> to <b style="color:var(--ink)">Uber</b>'s advisory program —
           I committed to engineering full-time through the
           <b style="color:var(--ink)">Frontend Simplified</b> program.
@@ -730,26 +743,6 @@
           <div class="pname"><a href="https://ecommerce-clone-47yjnfbj6-cameron-ms-projects.vercel.app/" target="_blank">Furniture E−commerce <span class="ext">↗</span></a></div>
           <p class="pdesc">A full-featured furniture store with product catalog, cart, search filters, and a moody editorial aesthetic.</p>
           <div class="ptags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Stripe</span></div>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="pmock">
-          <div class="mk mk-skin">
-            <span class="corner tl">SKINSTRIC [ INTRO ]</span>
-            <span class="corner tr">SUBSCRIBE</span>
-            <span class="corner bl">DISCOVER A.I. THAT CREATES<br>EFFECTIVE SKINCARE.</span>
-            <span class="arr l"></span><span class="arr r"></span>
-            <div class="label">Sophisticated<br>skincare</div>
-          </div>
-        </div>
-        <div class="pinfo">
-          <div class="pmeta">
-            <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>Editorial</span>
-          </div>
-          <div class="pname"><a href="https://skinstric-mu-lime.vercel.app/" target="_blank">Sophisticated Skincare <span class="ext">↗</span></a></div>
-          <p class="pdesc">An editorial landing concept with serif typography and meticulous corner annotations.</p>
-          <div class="ptags"><span class="tag">React</span><span class="tag">CSS</span></div>
         </div>
       </article>
 
