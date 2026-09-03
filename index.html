@@ -97,6 +97,28 @@
     transition:all .15s;
   }
   .nav-cta:hover{background:rgba(91,158,255,.16);border-color:var(--blue)}
+  .nav-toggle{
+    display:none;
+    align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:8px;
+    border:1px solid var(--line-strong);
+    background:rgba(91,158,255,.08);color:var(--blue-bright);
+    transition:background .15s, border-color .15s;
+  }
+  .nav-toggle:hover{background:rgba(91,158,255,.16);border-color:var(--blue)}
+  .nav-burger{
+    display:block;width:16px;height:1.5px;background:currentColor;position:relative;
+    transition:background .15s;
+  }
+  .nav-burger::before,.nav-burger::after{
+    content:'';position:absolute;left:0;width:16px;height:1.5px;background:currentColor;
+    transition:transform .15s, top .15s;
+  }
+  .nav-burger::before{top:-5px}
+  .nav-burger::after{top:5px}
+  nav.top.is-open .nav-burger{background:transparent}
+  nav.top.is-open .nav-burger::before{top:0;transform:rotate(45deg)}
+  nav.top.is-open .nav-burger::after{top:0;transform:rotate(-45deg)}
   .pulse{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(95,211,154,.7);animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,211,154,.6)}70%{box-shadow:0 0 0 8px rgba(95,211,154,0)}100%{box-shadow:0 0 0 0 rgba(95,211,154,0)}}
 
@@ -243,6 +265,12 @@
   }
   .project.featured .pmock{height:340px}
   .project.narrow .pmock{height:180px}
+  .pshot{display:block;height:100%}
+  .pshot img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:top center;
+    display:block;
+  }
   .pinfo{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
   .pmeta{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:var(--ink-mute)}
   .pmeta .lang{display:inline-flex;align-items:center;gap:6px}
@@ -259,54 +287,6 @@
     padding:4px 8px;border-radius:6px;border:1px solid var(--line);
     background:rgba(255,255,255,.02);
   }
-
-  /* mock graphics */
-  .mk{position:absolute;inset:0;display:grid;place-items:center;padding:20px}
-  .mk-skin{background:linear-gradient(135deg,#fafaf7,#f0ecdf)}
-  .mk-skin .label{font-family:'Times New Roman',serif;font-size:28px;color:#222;letter-spacing:-.02em;text-align:center}
-  .mk-skin .arr{position:absolute;top:50%;width:60px;height:1px;background:#999;transform:translateY(-50%)}
-  .mk-skin .arr.l{left:30px}.mk-skin .arr.r{right:30px}
-  .mk-skin .corner{position:absolute;font-family:monospace;font-size:8px;color:#666;letter-spacing:.1em}
-  .mk-skin .corner.tl{top:14px;left:14px}.mk-skin .corner.tr{top:14px;right:14px}
-  .mk-skin .corner.bl{bottom:14px;left:14px;line-height:1.5}
-
-  .mk-netflix{background:#000;overflow:hidden}
-  .mk-netflix .posters{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);gap:4px;padding:4px;opacity:.55}
-  .mk-netflix .posters div{background:linear-gradient(180deg, var(--p1,#444), var(--p2,#222));border-radius:2px}
-  .mk-netflix .center{position:relative;z-index:1;text-align:center;background:linear-gradient(180deg, transparent, rgba(0,0,0,.7));padding:24px 32px;border-radius:8px}
-  .mk-netflix .ttl{color:#fff;font-size:22px;font-weight:700;letter-spacing:-.02em}
-  .mk-netflix .sub{color:#ddd;font-size:11px;margin-top:6px}
-  .mk-netflix .nbtn{display:inline-block;background:#e50914;color:#fff;font-family:var(--mono);font-size:10px;padding:6px 12px;border-radius:3px;margin-top:10px;font-weight:600}
-  .mk-netflix .signin{position:absolute;top:10px;right:10px;background:#e50914;color:#fff;font-size:10px;padding:4px 10px;border-radius:3px;font-weight:600}
-
-  .mk-summ{background:#fff;padding:0}
-  .mk-summ .head{position:absolute;top:14px;left:18px;font-family:var(--mono);font-size:11px;color:#222;font-weight:700}
-  .mk-summ .nav{position:absolute;top:14px;right:18px;font-size:10px;color:#666;display:flex;gap:10px}
-  .mk-summ .content{display:flex;align-items:center;gap:24px;padding:36px 28px 0}
-  .mk-summ .ct h3{font-size:16px;color:#1a1a1a;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
-  .mk-summ .ct p{font-size:9px;color:#666;line-height:1.5;margin-bottom:10px}
-  .mk-summ .ct .b{display:inline-block;background:#5fd39a;color:#fff;font-size:9px;padding:5px 12px;border-radius:4px;font-weight:600}
-  .mk-summ .ill{width:80px;height:80px;background:#eafcf2;border-radius:8px;position:relative;flex-shrink:0}
-  .mk-summ .ill::after{content:'';position:absolute;inset:18px;background:#5fd39a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
-
-  .mk-nft{background:#f8f7ff;padding:0}
-  .mk-nft .head{position:absolute;top:14px;left:18px;font-family:var(--mono);font-size:10px;color:#7c3aed;font-weight:700}
-  .mk-nft .grid{position:absolute;bottom:20px;right:20px;display:grid;grid-template-columns:repeat(3,40px);grid-template-rows:repeat(2,40px);gap:6px}
-  .mk-nft .grid div{background:#fff;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.05);display:grid;place-items:center;font-size:10px;color:#7c3aed}
-  .mk-nft .grid div.lg{grid-column:span 2;grid-row:span 2;background:linear-gradient(135deg,#a78bff,#7c3aed);color:#fff;font-weight:700;font-size:11px}
-  .mk-nft .ct{position:absolute;top:50%;left:24px;transform:translateY(-50%);max-width:180px}
-  .mk-nft .ct h3{font-size:16px;color:#1a1a1a;font-weight:700;letter-spacing:-.01em;line-height:1.15}
-  .mk-nft .ct p{font-size:9px;color:#666;margin-top:6px;line-height:1.5}
-
-  .mk-ecom{background:#1a1a1a;padding:0;color:#fff;overflow:hidden}
-  .mk-ecom .header{position:absolute;top:0;left:0;right:0;background:#fff;color:#222;padding:8px 16px;font-size:10px;display:flex;justify-content:space-between;align-items:center}
-  .mk-ecom .lamp{position:absolute;left:20px;top:48px;bottom:20px;width:42%;background:linear-gradient(135deg,#3a3a3a,#1a1a1a);border-radius:6px;display:grid;place-items:center}
-  .mk-ecom .lamp::before{content:'';width:40px;height:60px;border:2px solid #888;border-radius:50% 50% 4px 4px / 60% 60% 4px 4px;background:linear-gradient(180deg,#666,#333)}
-  .mk-ecom .info{position:absolute;right:20px;top:48px;bottom:20px;width:42%;display:flex;flex-direction:column;justify-content:center;gap:6px}
-  .mk-ecom .info h3{font-size:13px;font-weight:700}
-  .mk-ecom .info .price{font-family:var(--mono);font-size:18px;font-weight:700;color:#ffd06a}
-  .mk-ecom .info .desc{font-size:9px;color:#aaa;line-height:1.5}
-  .mk-ecom .info .b{display:inline-block;background:#fff;color:#1a1a1a;font-size:10px;padding:5px 12px;border-radius:4px;font-weight:600;width:fit-content;margin-top:4px}
 
   /* EXPERIENCE */
   .timeline{display:flex;flex-direction:column;gap:0;position:relative}
@@ -403,7 +383,22 @@
   @media (max-width:640px){
     .shell{padding:0 20px}
     .about-grid{grid-template-columns:1fr;gap:32px}
-    .nav-links{display:none}
+    .nav-toggle{display:inline-flex}
+    .nav-links{
+      display:flex;flex-direction:column;align-items:stretch;gap:4px;
+      position:absolute;left:0;right:0;top:64px;z-index:51;
+      padding:12px 20px 20px;
+      background:rgba(7,11,24,.96);
+      backdrop-filter:saturate(140%) blur(14px);
+      border-bottom:1px solid var(--line);
+      opacity:0;visibility:hidden;pointer-events:none;
+      transform:translateY(-6px);
+      transition:opacity .15s, transform .15s, visibility .15s;
+    }
+    nav.top.is-open .nav-links{
+      opacity:1;visibility:visible;pointer-events:auto;transform:none;
+    }
+    .nav-links a,.nav-links .nav-cta{padding:12px 14px}
     .stack{grid-template-columns:repeat(2,1fr)}
     .projects{grid-template-columns:1fr}
     .tl-item{grid-template-columns:1fr;gap:8px}
@@ -422,7 +417,7 @@
     <div class="row">
       <div class="brand">
         <a href="mailto:cjmoses1318@gmail.com" class="brand-mark" aria-label="Email Cameron Moses">
-          <img src="CMProfile.JPG" alt="" width="32" height="32">
+          <img src="images/avatar.webp" alt="" width="32" height="32">
         </a>
         <a href="#top" class="brand-identity">
           <div class="brand-meta">
@@ -431,7 +426,10 @@
           </div>
         </a>
       </div>
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-burger" aria-hidden="true"></span>
+      </button>
+      <div class="nav-links" id="site-nav">
         <a href="#about"><span class="num">01</span>about</a>
         <a href="#stack"><span class="num">02</span>stack</a>
         <a href="#projects"><span class="num">03</span>projects</a>
@@ -583,30 +581,9 @@
       <!-- Skinstric featured -->
       <article class="project featured">
         <div class="pmock">
-          <div class="mk" style="background:radial-gradient(circle at 30% 50%, #1a1f3a, #0a0f1f);padding:0">
-            <div style="position:absolute;top:24px;left:32px;font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.2em">SKINSTRIC <span style="color:#5b9eff">[ INTRO ]</span></div>
-            <div style="position:absolute;top:24px;right:32px;display:flex;gap:16px;font-family:var(--mono);font-size:11px;color:#888">
-              <span>EN</span><a href="https://skinstric-mu-lime.vercel.app/" target="_blank" style="color:#5b9eff">START ANALYSIS →</a>
-            </div>
-            <!-- diamond -->
-            <div style="position:relative;width:240px;height:240px">
-              <div style="position:absolute;inset:0;border:1px solid rgba(91,158,255,.4);transform:rotate(45deg);animation:diamondSpin 20s linear infinite"></div>
-              <div style="position:absolute;inset:30px;border:1px solid rgba(91,158,255,.25);transform:rotate(45deg);animation:diamondSpin 30s linear infinite reverse"></div>
-              <div style="position:absolute;inset:60px;border:1px solid rgba(91,158,255,.15);transform:rotate(45deg);animation:diamondSpin 40s linear infinite"></div>
-              <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center">
-                <div>
-                  <div style="font-family:var(--mono);font-size:10px;color:#888;letter-spacing:.3em;margin-bottom:8px">SOPHISTICATED SKIN</div>
-                  <div style="font-family:'Times New Roman',serif;font-size:34px;color:#fff;letter-spacing:-.02em;line-height:1">ANALYSIS</div>
-                  <div style="font-family:var(--mono);font-size:10px;color:#5b9eff;letter-spacing:.3em;margin-top:12px">A.I. POWERED</div>
-                </div>
-              </div>
-            </div>
-            <div style="position:absolute;bottom:24px;left:32px;font-family:var(--mono);font-size:10px;color:#666;line-height:1.6">
-              [ START THE EXPERIENCE TO TEST YOUR SKIN. ]<br>
-              DISCOVER A.I. THAT CREATES EFFECTIVE SKINCARE.
-            </div>
-            <a href="https://skinstric-mu-lime.vercel.app/" target="_blank" style="position:absolute;bottom:24px;right:32px;font-family:var(--mono);font-size:10px;color:#666">PROCEED ▸</a>
-          </div>
+          <a class="pshot" href="https://skinstric-mu-lime.vercel.app/" target="_blank">
+            <img src="images/projects/skinstric.webp" alt="Skinstric AI skincare analysis landing page" width="1440" height="900">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
@@ -624,21 +601,11 @@
         </div>
       </article>
 
-      <article class="project wide">
+      <article class="project">
         <div class="pmock">
-          <div class="mk mk-netflix">
-            <div class="posters">
-              <div style="--p1:#8b0000;--p2:#2a0000"></div><div style="--p1:#1a3a8e"></div><div style="--p1:#5a2a1a"></div><div style="--p1:#3a3a3a"></div><div style="--p1:#7a1a1a"></div><div style="--p1:#1a4a3a"></div><div style="--p1:#4a1a3a"></div><div style="--p1:#5a5a1a"></div><div style="--p1:#1a1a5a"></div><div style="--p1:#3a1a1a"></div>
-              <div style="--p1:#1a3a3a"></div><div style="--p1:#7a3a1a"></div><div style="--p1:#3a1a4a"></div><div style="--p1:#5a4a1a"></div><div style="--p1:#1a4a1a"></div><div style="--p1:#4a4a4a"></div><div style="--p1:#7a4a3a"></div><div style="--p1:#1a2a4a"></div><div style="--p1:#5a1a3a"></div><div style="--p1:#3a4a5a"></div>
-              <div style="--p1:#5a3a1a"></div><div style="--p1:#2a3a1a"></div><div style="--p1:#1a5a5a"></div><div style="--p1:#3a3a7a"></div><div style="--p1:#6a1a4a"></div><div style="--p1:#4a5a2a"></div><div style="--p1:#1a4a6a"></div><div style="--p1:#7a2a3a"></div><div style="--p1:#3a5a4a"></div><div style="--p1:#5a3a6a"></div>
-            </div>
-            <div class="signin">Sign In</div>
-            <div class="center">
-              <div class="ttl">Unlimited films &amp; TV.</div>
-              <div class="sub">Watch anywhere. Cancel anytime.</div>
-              <a href="https://netflix-clone-ten-flax-37.vercel.app/" target="_blank" class="nbtn">GET STARTED ▸</a>
-            </div>
-          </div>
+          <a class="pshot" href="https://netflix-clone-ten-flax-37.vercel.app/" target="_blank">
+            <img src="images/projects/netflix.webp" alt="Netflix clone landing page with poster wall and email signup" width="1440" height="900" loading="lazy">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
@@ -650,40 +617,11 @@
         </div>
       </article>
 
-      <article class="project narrow">
-        <div class="pmock">
-          <div class="mk" style="background:linear-gradient(135deg,#0f1830,#1a2547);padding:0">
-            <div style="font-family:var(--mono);text-align:center;line-height:1.8">
-              <div style="font-size:11px;color:#5b9eff;letter-spacing:.3em">TYPESCRIPT</div>
-              <div style="font-size:48px;font-weight:700;color:#fff;margin-top:8px">{ }</div>
-              <div style="font-size:10px;color:#5b6885;margin-top:4px">16 repositories</div>
-            </div>
-          </div>
-        </div>
-        <div class="pinfo">
-          <div class="pmeta">
-            <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>Profile</span>
-          </div>
-          <div class="pname"><a href="https://github.com/CJMoses1318" target="_blank">CameronMoses <span class="ext">↗</span></a></div>
-          <p class="pdesc">My GitHub profile README — a curated overview of my work and stack.</p>
-        </div>
-      </article>
-
       <article class="project">
         <div class="pmock">
-          <div class="mk mk-summ">
-            <a href="https://summarist-lemon.vercel.app/" target="_blank" class="head">📚 Summarist</a>
-            <div class="nav"><span>Login</span><span>About</span><span>Contact</span></div>
-            <div class="content">
-              <div class="ct">
-                <h3>Gain more knowledge in less time</h3>
-                <p>Book summaries for busy people who don't have time to read.</p>
-                <span class="b">Login</span>
-              </div>
-              <div class="ill"></div>
-            </div>
-            <div style="position:absolute;bottom:14px;left:18px;right:18px;text-align:center;font-size:9px;color:#999">Understand books in few minutes</div>
-          </div>
+          <a class="pshot" href="https://summarist-lemon.vercel.app/" target="_blank">
+            <img src="images/projects/summarist.webp" alt="Summarist book summary platform landing page" width="1200" height="750" loading="lazy">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
@@ -697,19 +635,9 @@
 
       <article class="project">
         <div class="pmock">
-          <div class="mk mk-nft">
-            <div class="head">⬡ ULTRAVERSE</div>
-            <div class="ct">
-              <h3>Create, sell or collect digital items.</h3>
-              <p>NFT marketplace built on Web3 standards.</p>
-              <span style="display:inline-block;background:#7c3aed;color:#fff;font-size:9px;padding:5px 12px;border-radius:4px;margin-top:6px;font-weight:600">Explore</span>
-            </div>
-            <div class="grid">
-              <div class="lg">NFT</div>
-              <div>✓</div><div>◆</div>
-              <div>♥</div><div>▶</div>
-            </div>
-          </div>
+          <a class="pshot" href="https://cameron-internship-theta.vercel.app/" target="_blank">
+            <img src="images/projects/ultraverse.webp" alt="Ultraverse NFT marketplace landing page" width="1200" height="750" loading="lazy">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
@@ -723,26 +651,15 @@
 
       <article class="project">
         <div class="pmock">
-          <div class="mk mk-ecom">
-            <div class="header">
-              <span style="font-weight:700">The Furniture Store</span>
-              <span style="display:flex;gap:8px"><span style="background:#ff9500;color:#fff;padding:2px 6px;border-radius:3px;font-size:8px">SALE</span>🛒</span>
-            </div>
-            <div class="lamp"></div>
-            <div class="info">
-              <div style="font-size:8px;color:#ffd06a;font-weight:600">FEATURED</div>
-              <h3>Brass Arc Floor Lamp</h3>
-              <div class="desc">Iconic arc lamp in brushed brass with white linen shade. Adjustable arm up to 200cm.</div>
-              <div class="price">$449.99</div>
-              <span class="b">Shop Now ▸</span>
-            </div>
-          </div>
+          <a class="pshot" href="https://ecommerce-clone-iota.vercel.app/" target="_blank">
+            <img src="images/projects/furniture.webp" alt="Furniture store homepage with product carousel" width="1200" height="750" loading="lazy">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
             <span class="lang" style="--c:#3178c6">TypeScript</span><span>·</span><span>E−commerce</span>
           </div>
-          <div class="pname"><a href="https://ecommerce-clone-47yjnfbj6-cameron-ms-projects.vercel.app/" target="_blank">Furniture E−commerce <span class="ext">↗</span></a></div>
+          <div class="pname"><a href="https://ecommerce-clone-iota.vercel.app/" target="_blank">Furniture E−commerce <span class="ext">↗</span></a></div>
           <p class="pdesc">A full-featured furniture store with product catalog, cart, search filters, and a moody editorial aesthetic.</p>
           <div class="ptags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Stripe</span></div>
         </div>
@@ -750,17 +667,9 @@
 
       <article class="project">
         <div class="pmock">
-          <div class="mk mk-summ">
-            <a href="https://real-estate-project-fawn.vercel.app/" target="_blank" class="head">Real Estate Tracker</a>
-            <div class="nav"><span>Login</span><span>About</span><span>Contact</span></div>
-            <div class="content">
-              <div class="ct">
-                <h3>Track your real estate investments</h3>
-                <p>Track your real estate investments and see how they perform over time.</p>
-                <span class="b">Login</span>
-              </div>
-            </div>
-          </div>
+          <a class="pshot" href="https://real-estate-project-fawn.vercel.app/" target="_blank">
+            <img src="images/projects/real-estate.webp" alt="Real Estate Tracker sign-in landing page" width="1200" height="750" loading="lazy">
+          </a>
         </div>
         <div class="pinfo">
           <div class="pmeta">
@@ -967,18 +876,43 @@
   </div>
 </footer>
 
-<style>
-  @keyframes diamondSpin { from { transform: rotate(45deg); } to { transform: rotate(405deg); } }
-</style>
-
 <script>
-  // smooth scroll
+  const nav = document.querySelector('nav.top');
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('site-nav');
+  const mq = window.matchMedia('(max-width: 640px)');
+
+  function setMenu(open) {
+    nav.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (mq.matches) {
+      links.toggleAttribute('inert', !open);
+      links.setAttribute('aria-hidden', open ? 'false' : 'true');
+    } else {
+      links.removeAttribute('inert');
+      links.setAttribute('aria-hidden', 'false');
+    }
+    document.body.style.overflow = open && mq.matches ? 'hidden' : '';
+  }
+
+  function closeMenu() { setMenu(false); }
+
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  mq.addEventListener('change', () => closeMenu());
+  setMenu(false);
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id.length < 2) return;
       const el = document.querySelector(id);
-      if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' }); }
+      if (el) {
+        e.preventDefault();
+        closeMenu();
+        window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' });
+      }
     });
   });
 </script>
